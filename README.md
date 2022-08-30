@@ -20,33 +20,34 @@ PHP 5.5 ou posterior
 ## Instalação & Uso
 ### Composer
 
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
+Via [Composer](http://getcomposer.org/), adicione as linhas abaixo no arquivo `composer.json`:
 
 ```
 {
   "repositories": [
     {
-      "type": "git",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "type": "vcs",
+      "url": "git@github.com:tiagoskabrazil/pixrecebimentos-itau.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "tiagoskabrazil/pixrecebimentos-itau": "dev-dev-pixrecebimentos-itau"
   }
 }
+
 ```
 
-Then run `composer install`
+Em seguida, execute `composer install`
 
-### Manual Installation
+### Instalação Manual
 
-Download the files and include `autoload.php`:
+Faça o download dos arquivos e inclua o `autoload.php`:
 
 ```php
-    require_once('/path/to/SwaggerClient-php/vendor/autoload.php');
+    require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php');
 ```
 
-## Tests
+## Testes
 
 To run the unit tests:
 
