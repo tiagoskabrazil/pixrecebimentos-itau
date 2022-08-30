@@ -2,16 +2,15 @@
 Recebimentos Pix - Banco Itaú
 
 2.41.15
+Tipo: REST
 Especificação em ./docs/openapi_pix_recebimentos_ext_v2.json
 
-Base Path:
+*** Documentação sobre autenticação e autorização em ambiente PRODUTIVO ITAÚ
+https://devportal.itau.com.br/autenticacao-documentacao#client-jwt-tls
+
+Base Path - Ambiente Produtivo Itaú:
 https:/secure.api.itau/pix_recebimentos/v2
 
-Sandbox Path:
-https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2
-
-Tipo:
-REST
 
 ## Requisitos
 
