@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "889aac474566c98e605dddb04d262fa3",
+    "content-hash": "bde2b53e053383f314cc0703d74022c1",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -2444,7 +2444,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "tiagoskabrazil/pixrecebimentos-itau": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -31,7 +31,7 @@ Via [Composer](http://getcomposer.org/), adicione as linhas abaixo no arquivo `c
     }
   ],
   "require": {
-    "tiagoskabrazil/pixrecebimentos-itau": "dev-dev-pixrecebimentos-itau"
+    "tiagoskabrazil/pixrecebimentos-itau": "*@dev"
   }
 }
 
