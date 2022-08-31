@@ -115,7 +115,7 @@ class Configuration
      *
      * @var string
      */
-    protected $pathCertificado = '';
+    protected $pathCertificado = '/path/para/certificado/digital/';
 
 
     /**
@@ -123,8 +123,9 @@ class Configuration
      *
      * @var string
      */
-    protected $pathPrivateKey = '';
+    protected $pathPrivateKey = '/path/para/privatekey/do/certificado/digital/';
 
+    
     /**
      * URL para autenticação oauth2
      *

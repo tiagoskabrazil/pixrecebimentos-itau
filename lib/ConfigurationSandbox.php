@@ -124,6 +124,7 @@ class Configuration
      */
     protected $pathPrivateKey = '';
 
+    
     /**
      * URL para autenticação oauth2
      *
