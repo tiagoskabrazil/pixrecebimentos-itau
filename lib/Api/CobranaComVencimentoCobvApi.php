@@ -426,8 +426,11 @@ class CobranaComVencimentoCobvApi
         // Aplicando certificado digital caso esteja definido na configuração
         // obs: Em produção é obrigatório!
         if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            echo "usando certificado na conexão";
             $headers['cert'] = $this->config->getPathCertificado();
             $headers['ssl_key'] = $this->config->getPathPrivateKey();
+        }else{
+            echo "não usando certificado na conexão";
         }
 
         $defaultHeaders = [];
