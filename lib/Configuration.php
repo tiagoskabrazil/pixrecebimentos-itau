@@ -81,7 +81,7 @@ class Configuration
      * @var string
      */
     protected $host = 'https:/secure.api.itau/pix_recebimentos/v2';
-    protected $hostSandbox = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
+    public $hostSandbox = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
