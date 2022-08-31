@@ -115,16 +115,16 @@ class Configuration
      *
      * @var string
      */
-    protected $pathCertificado = '';
+    protected $pathCertificado = null;
 
     /**
      * Path do private key solicitado pelo Itaú
      *
      * @var string
      */
-    protected $pathPrivateKey = '';
+    protected $pathPrivateKey = null;
 
-    
+
     /**
      * URL para autenticação oauth2
      *

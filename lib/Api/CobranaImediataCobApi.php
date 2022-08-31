@@ -413,9 +413,11 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
 
         $defaultHeaders = [];
@@ -708,9 +710,11 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
 
         $defaultHeaders = [];
@@ -979,9 +983,11 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
 
         $defaultHeaders = [];
@@ -1281,10 +1287,13 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
+
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1536,9 +1545,11 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
 
         $defaultHeaders = [];
@@ -1809,10 +1820,13 @@ class CobranaImediataCobApi
             }
         }
 
-        // this endpoint requires HTTP basic authentication
-        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        // Aplicando certificado digital caso esteja definido na configuração
+        // obs: Em produção é obrigatório!
+        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+            $headers['cert'] = $this->config->getPathCertificado();
+            $headers['ssl_key'] = $this->config->getPathPrivateKey();
         }
+
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
