@@ -356,7 +356,7 @@ class LocationEndereoURLEImagemApi
             }
         }
 
-        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
+        $headers = $this->headerSelector->aplicarHeadersITAU($this->config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -687,7 +687,7 @@ class LocationEndereoURLEImagemApi
             }
         }
 
-        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
+        $headers = $this->headerSelector->aplicarHeadersITAU($this->config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -970,7 +970,7 @@ class LocationEndereoURLEImagemApi
             }
         }
 
-        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
+        $headers = $this->headerSelector->aplicarHeadersITAU($this->config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1222,7 +1222,7 @@ class LocationEndereoURLEImagemApi
             }
         }
 
-        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
+        $headers = $this->headerSelector->aplicarHeadersITAU($this->config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
