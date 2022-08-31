@@ -423,7 +423,7 @@ class ConfigurationSandbox
     public static function getDefaultConfiguration()
     {
         if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
+            self::$defaultConfiguration = new ConfigurationSandbox();
         }
 
         return self::$defaultConfiguration;
@@ -436,7 +436,7 @@ class ConfigurationSandbox
      *
      * @return void
      */
-    public static function setDefaultConfiguration(Configuration $config)
+    public static function setDefaultConfiguration(ConfigurationSandbox $config)
     {
         self::$defaultConfiguration = $config;
     }
