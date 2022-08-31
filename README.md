@@ -11,6 +11,9 @@ https://devportal.itau.com.br/autenticacao-documentacao#client-jwt-tls
 Base Path - Ambiente Produtivo Itaú:
 https:/secure.api.itau/pix_recebimentos/v2
 
+Sandbox Path (Ambiente para testes):
+https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2
+
 
 ## Requisitos
 
