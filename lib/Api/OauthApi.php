@@ -70,11 +70,11 @@ class OauthApi
         $clientSecret = $this->config->getApiKey('client_secret');
         $httpBody = '{ "client_id":"'.$clientId.'", "client_secret":"'.$clientSecret.'" }';
 
-        if($config->isModoProducao()){
+        if($this->config->isModoProducao()){
             echo "* Modo Producao. Aplicando cert e ssl_key no header da requisicao\n";
-            if ($config->getPathCertificado() !== null && $config->getPathPrivateKey() !== null) {
-                $headerParams['cert'] = $config->getPathCertificado();
-                $headerParams['ssl_key'] = $config->getPathPrivateKey();
+            if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
+                $headerParams['cert'] = $this->config->getPathCertificado();
+                $headerParams['ssl_key'] = $this->config->getPathPrivateKey();
             }else{
                 throw new ApiException(
                     "* Modo Producao: Path p/ Certificado e path p/ Private Key obrigatorio.",
