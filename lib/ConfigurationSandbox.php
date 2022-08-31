@@ -36,7 +36,7 @@ namespace Swagger\Client;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Configuration
+class ConfigurationSandbox
 {
     private static $defaultConfiguration;
 
