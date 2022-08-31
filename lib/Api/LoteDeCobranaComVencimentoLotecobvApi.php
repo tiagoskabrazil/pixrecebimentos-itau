@@ -385,17 +385,7 @@ class LoteDeCobranaComVencimentoLotecobvApi
             }
         }
 
-        // Aplicando certificado digital caso esteja definido na configuração
-        // obs: Em produção é obrigatório!
-        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
-            $headers['cert'] = $this->config->getPathCertificado();
-            $headers['ssl_key'] = $this->config->getPathPrivateKey();
-        }
-
-        // Definindo o Autorization com o ACCESS_TOKEN
-        if($this->config->getAccessToken()!==null || $this->config->getAccessToken()!==''){
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
+        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -678,17 +668,7 @@ class LoteDeCobranaComVencimentoLotecobvApi
             }
         }
 
-        // Aplicando certificado digital caso esteja definido na configuração
-        // obs: Em produção é obrigatório!
-        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
-            $headers['cert'] = $this->config->getPathCertificado();
-            $headers['ssl_key'] = $this->config->getPathPrivateKey();
-        }
-
-        // Definindo o Autorization com o ACCESS_TOKEN
-        if($this->config->getAccessToken()!==null || $this->config->getAccessToken()!==''){
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
+        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -950,17 +930,7 @@ class LoteDeCobranaComVencimentoLotecobvApi
             }
         }
 
-        // Aplicando certificado digital caso esteja definido na configuração
-        // obs: Em produção é obrigatório!
-        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
-            $headers['cert'] = $this->config->getPathCertificado();
-            $headers['ssl_key'] = $this->config->getPathPrivateKey();
-        }
-
-        // Definindo o Autorization com o ACCESS_TOKEN
-        if($this->config->getAccessToken()!==null || $this->config->getAccessToken()!==''){
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
+        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1222,17 +1192,7 @@ class LoteDeCobranaComVencimentoLotecobvApi
             }
         }
 
-        // Aplicando certificado digital caso esteja definido na configuração
-        // obs: Em produção é obrigatório!
-        if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
-            $headers['cert'] = $this->config->getPathCertificado();
-            $headers['ssl_key'] = $this->config->getPathPrivateKey();
-        }
-
-        // Definindo o Autorization com o ACCESS_TOKEN
-        if($this->config->getAccessToken()!==null || $this->config->getAccessToken()!==''){
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
+        $headers = $this->headerSelector->aplicarHeadersITAU($config,$headers);
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

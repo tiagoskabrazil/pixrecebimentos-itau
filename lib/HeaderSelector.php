@@ -40,6 +40,43 @@ use \Exception;
 class HeaderSelector
 {
 
+
+    /**
+     * @param string[] $config 
+     * @param string[] $headersInput
+     * @return array
+     */
+    public function aplicarHeadersITAU($config, $headersInput)
+    {
+
+        echo "Aplicando HEADERs Itaú...\n";
+
+       // PRODUCAO
+       if($config->isModoProducao()){
+            
+            if ($config->getPathCertificado() !== null && $config->getPathPrivateKey() !== null) {
+                $headersInput['cert'] = $config->getPathCertificado();
+                $headersInput['ssl_key'] = $config->getPathPrivateKey();
+            }
+
+            // !!!
+            // DEFINIR O CABECALHO PARA TOKEN PRODUCAO!!!
+            // !!!
+            
+        }else{
+            // SANDBOX
+            echo "MODO SANDBOX \n";
+            if($config->getAccessToken()!==null || $config->getAccessToken()!==''){
+                $headersInput['x-sandbox-token'] = $config->getAccessToken();
+            }
+        }
+       
+        $headersInput['x-itau-apikey'] = isset($config->apiKeys['x-itau-apikey']) ? $config->apiKeys['x-itau-apikey'] : 123;
+        
+        echo " HEADERs Itaú aplicados.\n";
+        return $headersInput;
+    }
+
     /**
      * @param string[] $accept
      * @param string[] $contentTypes

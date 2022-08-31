@@ -80,8 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https:/secure.api.itau/pix_recebimentos/v2';
-    public $hostSandbox = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
+    protected $host = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -132,8 +131,13 @@ class Configuration
      *
      * @var string
      */
-    protected $urlOAuth = 'https://sts.itau.com.br/api/oauth/token';
-    public $urlOAuthSandbox = 'https://oauthd.itau/identity/connect/token';
+    protected $urlOAuth = 'https://devportal.itau.com.br/api/jwt';
+
+    /**
+     * Modo produção.
+     * Caso TRUE, será incluido o certificado digital e chaveprivada no HEADER da requisição
+     */
+    protected $modoProducao = false;
 
     /**
      * Constructor
@@ -143,6 +147,18 @@ class Configuration
         $this->tempFolderPath = sys_get_temp_dir();
     }
 
+    /**
+     * Verifica se modo produção está ativo
+     */
+    public function isModoProducao()
+    {
+        return $this->modoProducao;
+    }
+
+    public function setModoProducao($modoProducaoNovo){
+        $this->modoProducao = $modoProducaoNovo;
+        return $this;
+    }
 
     public function getPathCertificado()
     {
