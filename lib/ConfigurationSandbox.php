@@ -80,7 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https:/secure.api.itau/pix_recebimentos/v2';
+    protected $host = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -110,13 +110,12 @@ class Configuration
      */
     protected $tempFolderPath;
 
-    /**
+   /**
      * Path do certificado digital solicitado pelo Itaú
      *
      * @var string
      */
     protected $pathCertificado = '';
-
 
     /**
      * Path do private key solicitado pelo Itaú
@@ -130,7 +129,7 @@ class Configuration
      *
      * @var string
      */
-    protected $urlOAuth = 'https://sts.itau.com.br/api/oauth/token';
+    protected $urlOAuth = ' https://oauthd.itau/identity/connect/token';
 
 
     /**
@@ -171,6 +170,7 @@ class Configuration
         $this->urlOAuth = $urlOAuthNovo;
         return $this;
     }
+
 
 
     /**
