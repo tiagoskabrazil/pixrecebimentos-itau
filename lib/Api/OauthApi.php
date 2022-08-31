@@ -59,6 +59,7 @@ class OauthApi
      */
     public function gerarAccessToken()
     {
+        echo "* OauthApi->gerarAccessToken():\n";
         $headerParams = [];
         $httpBody = '';
         $response = null;
@@ -67,8 +68,22 @@ class OauthApi
         $headerParams['Content-Type'] = "application/json";
         $clientId = $this->config->getApiKey('client_id');
         $clientSecret = $this->config->getApiKey('client_secret');
-
         $httpBody = '{ "client_id":"'.$clientId.'", "client_secret":"'.$clientSecret.'" }';
+
+        if($config->isModoProducao()){
+            echo "* Modo Producao. Aplicando cert e ssl_key no header da requisicao\n";
+            if ($config->getPathCertificado() !== null && $config->getPathPrivateKey() !== null) {
+                $headerParams['cert'] = $config->getPathCertificado();
+                $headerParams['ssl_key'] = $config->getPathPrivateKey();
+            }else{
+                throw new ApiException(
+                    "* Modo Producao: Path p/ Certificado e path p/ Private Key obrigatorio.",
+                    0,
+                    null,
+                    null
+                );
+            }
+        }
 
         $request = new Request('POST', $this->config->getUrlOAuth(), $headerParams, $httpBody);
         $options = $this->createHttpClientOption();

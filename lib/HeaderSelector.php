@@ -49,31 +49,40 @@ class HeaderSelector
     public function aplicarHeadersITAU($config, $headersInput)
     {
 
-        echo "Aplicando HEADERs Itaú...\n";
-
+        echo "* HeaderSelector->aplicarHeadersITAU()\n";
+        
        // PRODUCAO
        if($config->isModoProducao()){
-            
+            echo "* Modo Producao\n";
+            echo "* Aplicando cert e ssl_key no header da requisicao\n";
             if ($config->getPathCertificado() !== null && $config->getPathPrivateKey() !== null) {
                 $headersInput['cert'] = $config->getPathCertificado();
                 $headersInput['ssl_key'] = $config->getPathPrivateKey();
+            }else{
+                throw new ApiException(
+                    "* Modo Producao: Path p/ Certificado e path p/ Private Key obrigatorio.",
+                    0,
+                    null,
+                    null
+                );
+            }
+            echo "* Incluindo header Authorization Bearer";
+            if($config->getAccessToken()!==null || $config->getAccessToken()!==''){
+                $headersInput['Authorization'] = 'Bearer ' . $config->getAccessToken();
             }
 
-            // !!!
-            // DEFINIR O CABECALHO PARA TOKEN PRODUCAO!!!
-            // !!!
-            
         }else{
             // SANDBOX
-            echo "MODO SANDBOX \n";
+            echo "* Modo SANDBOX\n";
+            echo "* Aplicando header x-sandbox-token\n";
             if($config->getAccessToken()!==null || $config->getAccessToken()!==''){
                 $headersInput['x-sandbox-token'] = $config->getAccessToken();
             }
         }
        
+        echo "* aplicando header x-itau-apikey\n";
         $headersInput['x-itau-apikey'] = isset($config->apiKeys['x-itau-apikey']) ? $config->apiKeys['x-itau-apikey'] : 123;
         
-        echo " HEADERs Itaú aplicados.\n";
         return $headersInput;
     }
 
