@@ -59,7 +59,7 @@ class Configuration
      *
      * @var string
      */
-    protected $accessToken = '';
+    protected $accessToken = null;
 
     /**
      * Username for HTTP basic authentication
