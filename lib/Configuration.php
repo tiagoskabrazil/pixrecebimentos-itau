@@ -81,6 +81,7 @@ class Configuration
      * @var string
      */
     protected $host = 'https:/secure.api.itau/pix_recebimentos/v2';
+    protected $hostSandbox = 'https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -112,27 +113,27 @@ class Configuration
 
     /**
      * Path do certificado digital solicitado pelo Itaú
-     *
+     * OBS: Para ambiente de produção é obrigatorio o uso de certificado 
      * @var string
      */
-    protected $pathCertificado = '/path/para/certificado/digital/';
+    public $pathCertificado = '';
 
 
     /**
      * Path do private key solicitado pelo Itaú
-     *
+     * OBS: Para ambiente de produção é obrigatorio o uso de certificado 
      * @var string
      */
-    protected $pathPrivateKey = '/path/para/privatekey/do/certificado/digital/';
+    public $pathPrivateKey = '';
 
-    
+
     /**
      * URL para autenticação oauth2
      *
      * @var string
      */
     protected $urlOAuth = 'https://sts.itau.com.br/api/oauth/token';
-
+    public $urlOAuthSandbox = 'https://oauthd.itau/identity/connect/token';
 
     /**
      * Constructor
