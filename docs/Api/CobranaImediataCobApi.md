@@ -21,7 +21,7 @@ Endpoint para consultar cobranças imediatas através de parâmetros como iníci
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -131,7 +131,7 @@ Endpoint para consultar uma cobrança através de um determinado txid.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -227,7 +227,7 @@ Operação responsável por recuperar os dados do documento
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -322,7 +322,7 @@ Operação responsável por revisar uma cobranca
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -418,7 +418,7 @@ Endpoint para criar uma cobrança imediata, neste caso, o txid deve ser definido
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -513,7 +513,7 @@ Endpoint para criar uma cobrança imediata.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################

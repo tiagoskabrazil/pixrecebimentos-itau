@@ -19,7 +19,7 @@ Endpoint para consultar lista de lotes de cobranças com vencimento.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -121,7 +121,7 @@ Consultar um lote de cobranças com vencimento.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -215,7 +215,7 @@ Endpoint utilizado para revisar cobranças específicas dentro de um lote de cob
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -310,7 +310,7 @@ Endpoint utilizado para criar ou alterar um lote de cobranças com vencimento. P
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################

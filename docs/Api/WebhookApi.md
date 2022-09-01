@@ -19,7 +19,7 @@ Operação responsável por deletar webhook para aviso de recebimentos pix por c
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -112,7 +112,7 @@ Operação responsável por resgatar webhooks de aviso de recebimentos pix para 
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -214,7 +214,7 @@ Operação responsável por resgatar webhook de aviso de recebimentos pix por ch
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -308,7 +308,7 @@ Operação responsável por cadastrar webhook para aviso de recebimentos pix por
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################

@@ -19,7 +19,7 @@ Operação responsável por recuperar os dados de documentos de acordo com os fi
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -131,7 +131,7 @@ Operação responsável por recuperar os dados do documento pelo id transacional
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -225,7 +225,7 @@ Operação responsavel por resgatar um pagamento específico para o PIX.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -321,7 +321,7 @@ Operação responsável por solicitar um nova devolução, por meio do e2eid e d
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################

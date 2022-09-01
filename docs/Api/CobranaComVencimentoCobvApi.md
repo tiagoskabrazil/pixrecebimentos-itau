@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **getcobv**
 > \Swagger\Client\Model\CobrancasVencimento getcobv($inicio, $fim, $cpf, $cnpj, $location_presente, $status, $lote_cob_v_id, $paginacao_pagina_atual, $paginacao_itens_por_pagina, $x_correlation_id)
 
-
+ 
 
 Endpoint para consultar cobranças com vencimento através de parâmetros como início, fim, cpf, cnpj e status.
 
