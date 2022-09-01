@@ -20,7 +20,7 @@ Endpoint para consultar cobranças com vencimento através de parâmetros como i
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -132,7 +132,7 @@ Endpoint para consultar uma cobrança com vencimento através de um determinado 
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -228,7 +228,7 @@ Operação responsável por recuperar os dados de QR Code relacionado a cobranca
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -323,7 +323,7 @@ Endpoint responsável por revisar uma cobranca com vencimento
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
@@ -418,7 +418,7 @@ Endpoint para criar uma cobrança com vencimento.
 ### Example
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
