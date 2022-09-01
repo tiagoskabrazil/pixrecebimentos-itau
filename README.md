@@ -58,9 +58,9 @@ composer install
 ./vendor/bin/phpunit
 ```
 
-## Getting Started
+## Para começar
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Primeiramente siga os passos dos procedimentos de instalação [installation procedure](#installation--usage) e então execute o exemplo abaixo:
 
 ```php
 <?php
@@ -68,7 +68,25 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 /**
+ * ##################################################################
  * Configurando para uso em ambiente desenvolvimento ( SandBox Itaú)
+ * ##################################################################
+ * 
+ * OBS: Modo Producao = TRUE
+ *      Em modo produção é necessário o uso de certificado digital , chave privada.
+ *      Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *      Ex:
+ *      $config->setModoProducao(true);
+*       $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*       $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*       $config->setApiKey('client_id','XXXXXXXXXXX');
+*       $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*       $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*       $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*       $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*       $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*       $config->setAccessToken($accessTokenOauth);
+ *      
  */
 $config = Swagger\Client\Configuration::getDefaultConfiguration();
 $config->setModoProducao(false);
@@ -91,12 +109,10 @@ echo "Access_token:" . $config->getAccessToken() . "\n";
  * Fim da configuração do ambiente SandBox
  */
 
-$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// Iniciando qual API se deseja consumir
+$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(new GuzzleHttp\Client(),$config);
+
+// Definindo os valor para envio da requisição
 $inicio = "inicio_example"; // string | Data inicial. Respeita RFC 3339.
 $fim = "fim_example"; // string | Data de fim. Respeita RFC 3339.
 $cpf = "cpf_example"; // string | CPF do devedor cadastrado na cobrança.
@@ -114,91 +130,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CobranaComVencimentoCobvApi->getcobv: ', $e->getMessage(), PHP_EOL;
 }
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setUsername('YOUR_USERNAME')
-    ->setPassword('YOUR_PASSWORD');
 
-$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$txid = "txid_example"; // string | Txid a ser consultado.
-$revisao = "revisao_example"; // string | Revisão do documento, utilizado para a sua identificação no banco central
-
-try {
-    $result = $apiInstance->getcobvtxid($txid, $revisao);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CobranaComVencimentoCobvApi->getcobvtxid: ', $e->getMessage(), PHP_EOL;
-}
-
-// Configure OAuth2 access token for authorization: oauth2
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$txid = "txid_example"; // string | Txid a ser consultado.
-$x_correlation_id = "x_correlation_id_example"; // string | Identificador de correlação que serve como um agrupar dentro da estrutura de audit trail
-
-try {
-    $result = $apiInstance->getcobvtxidqrcode($txid, $x_correlation_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CobranaComVencimentoCobvApi->getcobvtxidqrcode: ', $e->getMessage(), PHP_EOL;
-}
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setUsername('YOUR_USERNAME')
-    ->setPassword('YOUR_PASSWORD');
-
-$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$txid = "txid_example"; // string | Txid a ser consultado.
-$body = new \Swagger\Client\Model\CobrancaVencimentoPatchRequest(); // \Swagger\Client\Model\CobrancaVencimentoPatchRequest | 
-
-try {
-    $apiInstance->patchcobvtxid($txid, $body);
-} catch (Exception $e) {
-    echo 'Exception when calling CobranaComVencimentoCobvApi->patchcobvtxid: ', $e->getMessage(), PHP_EOL;
-}
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setUsername('YOUR_USERNAME')
-    ->setPassword('YOUR_PASSWORD');
-
-$apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$txid = "txid_example"; // string | Txid a ser consultado.
-$body = new \Swagger\Client\Model\CobrancaVencimentoPutRequest(); // \Swagger\Client\Model\CobrancaVencimentoPutRequest | 
-
-try {
-    $apiInstance->putcobvtxid($txid, $body);
-} catch (Exception $e) {
-    echo 'Exception when calling CobranaComVencimentoCobvApi->putcobvtxid: ', $e->getMessage(), PHP_EOL;
-}
 ?>
 ```
 
-## Documentation for API Endpoints
+## Documentação dos Endpoints da API Recebimentos PIX Itaú
 
-All URIs are relative to *https:/secure.api.itau/pix_recebimentos/v2*
 
-Class | Method | HTTP request | Description
+
+Classe | Metodo | HTTP request | Descrição
 ------------ | ------------- | ------------- | -------------
 *CobranaComVencimentoCobvApi* | [**getcobv**](docs/Api/CobranaComVencimentoCobvApi.md#getcobv) | **GET** /cobv | 
 *CobranaComVencimentoCobvApi* | [**getcobvtxid**](docs/Api/CobranaComVencimentoCobvApi.md#getcobvtxid) | **GET** /cobv/{txid} | 
