@@ -54,23 +54,10 @@ class HeaderSelector
        // PRODUCAO
        if($config->isModoProducao()){
             echo "* Modo Producao\n";
-            echo "* Aplicando cert e ssl_key no header da requisicao\n";
-            if ($config->getPathCertificado() !== null && $config->getPathPrivateKey() !== null) {
-                $headersInput['cert'] = $config->getPathCertificado();
-                $headersInput['ssl_key'] = $config->getPathPrivateKey();
-            }else{
-                throw new ApiException(
-                    "* Modo Producao: Path p/ Certificado e path p/ Private Key obrigatorio.",
-                    0,
-                    null,
-                    null
-                );
-            }
             echo "* Incluindo header Authorization Bearer";
             if($config->getAccessToken()!==null || $config->getAccessToken()!==''){
                 $headersInput['Authorization'] = 'Bearer ' . $config->getAccessToken();
             }
-
         }else{
             // SANDBOX
             echo "* Modo SANDBOX\n";
