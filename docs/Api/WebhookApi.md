@@ -20,11 +20,50 @@ Operação responsável por deletar webhook para aviso de recebimentos pix por c
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
 
+/**
+ * ##################################################################
+ * Configurando para uso em ambiente desenvolvimento (SandBox Itaú)
+ * ##################################################################
+ * 
+ * 
+ * (OBS): Para modo producao = TRUE
+ *        Em modo produção é necessário o uso de certificado digital , chave privada.
+ *        Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *        Ex:
+ *        $config->setModoProducao(true);
+*         $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*         $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*         $config->setApiKey('client_id','XXXXXXXXXXX');
+*         $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*         $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*         $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*         $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*         $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*         $config->setAccessToken($accessTokenOauth);
+ *      
+ */
+$config = Swagger\Client\Configuration::getDefaultConfiguration();
+$config->setModoProducao(false);
+$config->setHost('https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2');
+$config->setUrlOAuth('https://devportal.itau.com.br/api/jwt');
+$config->setApiKey('client_id','c82c8177-5f5a-349e-88e2-30a5b2a78a54');
+$config->setApiKey('client_secret','f013e480-92ec-4828-9d65-8d9b3100a885');
+$clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+$accessTokenOauth = $clienteOauth->gerarAccessToken();
+$config->setAccessToken($accessTokenOauth);
+
+echo "Dados usados na configuração:\n";
+echo "Modo Produção: ". $config->isModoProducao() ."\n";
+echo "Host Base Api Recebimentos PIX: " . $config->getHost() . "\n";
+echo "Url Oauth: " . $config->getUrlOAuth() . "\n";
+echo "Client_id:" . $config->getApiKey('client_id') . "\n";
+echo "Client_secret:" . $config->getApiKey('client_secret') . "\n";
+echo "Access_token:" . $config->getAccessToken() . "\n";
+echo "\n\n";
+/**
+ * Fim da configuração do ambiente SandBox
+ */
 
 $apiInstance = new Swagger\Client\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -74,11 +113,50 @@ Operação responsável por resgatar webhooks de aviso de recebimentos pix para 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
 
+/**
+ * ##################################################################
+ * Configurando para uso em ambiente desenvolvimento (SandBox Itaú)
+ * ##################################################################
+ * 
+ * 
+ * (OBS): Para modo producao = TRUE
+ *        Em modo produção é necessário o uso de certificado digital , chave privada.
+ *        Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *        Ex:
+ *        $config->setModoProducao(true);
+*         $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*         $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*         $config->setApiKey('client_id','XXXXXXXXXXX');
+*         $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*         $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*         $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*         $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*         $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*         $config->setAccessToken($accessTokenOauth);
+ *      
+ */
+$config = Swagger\Client\Configuration::getDefaultConfiguration();
+$config->setModoProducao(false);
+$config->setHost('https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2');
+$config->setUrlOAuth('https://devportal.itau.com.br/api/jwt');
+$config->setApiKey('client_id','c82c8177-5f5a-349e-88e2-30a5b2a78a54');
+$config->setApiKey('client_secret','f013e480-92ec-4828-9d65-8d9b3100a885');
+$clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+$accessTokenOauth = $clienteOauth->gerarAccessToken();
+$config->setAccessToken($accessTokenOauth);
+
+echo "Dados usados na configuração:\n";
+echo "Modo Produção: ". $config->isModoProducao() ."\n";
+echo "Host Base Api Recebimentos PIX: " . $config->getHost() . "\n";
+echo "Url Oauth: " . $config->getUrlOAuth() . "\n";
+echo "Client_id:" . $config->getApiKey('client_id') . "\n";
+echo "Client_secret:" . $config->getApiKey('client_secret') . "\n";
+echo "Access_token:" . $config->getAccessToken() . "\n";
+echo "\n\n";
+/**
+ * Fim da configuração do ambiente SandBox
+ */
 
 $apiInstance = new Swagger\Client\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -137,11 +215,50 @@ Operação responsável por resgatar webhook de aviso de recebimentos pix por ch
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
 
+/**
+ * ##################################################################
+ * Configurando para uso em ambiente desenvolvimento (SandBox Itaú)
+ * ##################################################################
+ * 
+ * 
+ * (OBS): Para modo producao = TRUE
+ *        Em modo produção é necessário o uso de certificado digital , chave privada.
+ *        Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *        Ex:
+ *        $config->setModoProducao(true);
+*         $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*         $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*         $config->setApiKey('client_id','XXXXXXXXXXX');
+*         $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*         $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*         $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*         $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*         $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*         $config->setAccessToken($accessTokenOauth);
+ *      
+ */
+$config = Swagger\Client\Configuration::getDefaultConfiguration();
+$config->setModoProducao(false);
+$config->setHost('https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2');
+$config->setUrlOAuth('https://devportal.itau.com.br/api/jwt');
+$config->setApiKey('client_id','c82c8177-5f5a-349e-88e2-30a5b2a78a54');
+$config->setApiKey('client_secret','f013e480-92ec-4828-9d65-8d9b3100a885');
+$clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+$accessTokenOauth = $clienteOauth->gerarAccessToken();
+$config->setAccessToken($accessTokenOauth);
+
+echo "Dados usados na configuração:\n";
+echo "Modo Produção: ". $config->isModoProducao() ."\n";
+echo "Host Base Api Recebimentos PIX: " . $config->getHost() . "\n";
+echo "Url Oauth: " . $config->getUrlOAuth() . "\n";
+echo "Client_id:" . $config->getApiKey('client_id') . "\n";
+echo "Client_secret:" . $config->getApiKey('client_secret') . "\n";
+echo "Access_token:" . $config->getAccessToken() . "\n";
+echo "\n\n";
+/**
+ * Fim da configuração do ambiente SandBox
+ */
 
 $apiInstance = new Swagger\Client\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -192,11 +309,50 @@ Operação responsável por cadastrar webhook para aviso de recebimentos pix por
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure HTTP basic authorization: APIGatewaySTSAuthorizer
-$config = Swagger\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
 
+/**
+ * ##################################################################
+ * Configurando para uso em ambiente desenvolvimento (SandBox Itaú)
+ * ##################################################################
+ * 
+ * 
+ * (OBS): Para modo producao = TRUE
+ *        Em modo produção é necessário o uso de certificado digital , chave privada.
+ *        Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *        Ex:
+ *        $config->setModoProducao(true);
+*         $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*         $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*         $config->setApiKey('client_id','XXXXXXXXXXX');
+*         $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*         $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*         $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*         $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*         $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*         $config->setAccessToken($accessTokenOauth);
+ *      
+ */
+$config = Swagger\Client\Configuration::getDefaultConfiguration();
+$config->setModoProducao(false);
+$config->setHost('https://devportal.itau.com.br/sandboxapi/pix_recebimentos_ext_v2/v2');
+$config->setUrlOAuth('https://devportal.itau.com.br/api/jwt');
+$config->setApiKey('client_id','c82c8177-5f5a-349e-88e2-30a5b2a78a54');
+$config->setApiKey('client_secret','f013e480-92ec-4828-9d65-8d9b3100a885');
+$clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+$accessTokenOauth = $clienteOauth->gerarAccessToken();
+$config->setAccessToken($accessTokenOauth);
+
+echo "Dados usados na configuração:\n";
+echo "Modo Produção: ". $config->isModoProducao() ."\n";
+echo "Host Base Api Recebimentos PIX: " . $config->getHost() . "\n";
+echo "Url Oauth: " . $config->getUrlOAuth() . "\n";
+echo "Client_id:" . $config->getApiKey('client_id') . "\n";
+echo "Client_secret:" . $config->getApiKey('client_secret') . "\n";
+echo "Access_token:" . $config->getAccessToken() . "\n";
+echo "\n\n";
+/**
+ * Fim da configuração do ambiente SandBox
+ */
 
 $apiInstance = new Swagger\Client\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

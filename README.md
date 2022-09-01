@@ -111,9 +111,12 @@ echo "\n\n";
  * Fim da configuração do ambiente SandBox
  */
 
-// Iniciando qual API se deseja consumir
-// Por exemplo, /cobv/{txid}/qrcode
-// Operação responsável por recuperar os dados de QR Code relacionado a cobranca com vencimento
+/**
+ * 
+ * Iniciando qual API se deseja consumir
+ * Por exemplo, Cobrança com Vencimentos (/cobv/{txid}/qrcode)
+ * Operação responsável por recuperar os dados de QR Code relacionado a cobranca com vencimento
+*/
 $apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(new GuzzleHttp\Client(),$config);
 $txid = "123"; 
 $x_correlation_id = null; 
@@ -125,12 +128,15 @@ try {
     echo 'Exception when calling CobranaComVencimentoCobvApi->getcobvtxidqrcode: ', $e->getMessage(), PHP_EOL;
 }
 
-Response de Exemplo:
+/**
+ * Response de Exemplo: 
+ */
+
 (
-            [pix_link] => https://pix.bcb.gov.br/qr/MDAwMjAxMDEwMjExMjY5NTAwMTRCUi5HT1YuQkNCLlBJWDI1NzNzcGkuZGV2LmNsb3VkLml0YXUuY29tLmJyL2RvY3VtZW50b3MvMTk4ZTQ5YzUtMjMzMC00YWQ3LTlkMGItOTY3YzdiNTM3MTIyNTIwNDAwMDA1MzAzOTg2NTgwMkJSNTkyM1BNRCBHb3RoYW0gTmVnQSBjaW9zIE1FNjAwOVNBTyBQQVVMTzYyNDEwNTAzKioqNTAzMDAwMTdCUi5HT1YuQkNCLkJSQ09ERTAxMDUxLjAuMDYzMDQwODY2
-            [emv] => 00020101021126950014BR.GOV.BCB.PIX2573spi.dev.cloud.itau.com.br/documentos/198e49c5-2330-4ad7-9d0b-967c7b5371225204000053039865802BR5923PMD Gotham NegA cios ME6009SAO PAULO62410503***50300017BR.GOV.BCB.BRCODE01051.0.063040866
-            [imagem_base64] => iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAADCUlEQVR4Xu2XUW4cIRBE6YvA/W+Ro8BFIPWKsWU5kpWPbOVn8SaZhWep1F1dTNr5ef1q33e+rTdw1xu466+A2VqtXbuP3etMPY9zlrdjwPLnrNm1NceaNXtv426nAOliqw5K+1io3IBhoFyZsWuaE/UfgM1h0xpzTMqUBfRxXZB2ONylhy/Nej0wMe2fi+0Y4KUend1omcZHR7vufgigNMzLEDXFbL63Pj6bFQBkld57MS0KkEWfdhOg3sWAI0mYRUIJMkvGwq5VCJhWtwkwAWoXIcJvjRxw9WnL/YKQWxejPGKAxvZgEHWoBKlhErztmBhgafaMXCtqWKVDJQYc2oNndY5llncEspUDlOFFrXRA23QiUl9jwB7aPvhkoE5UGeQxBlyFLEaXCbrW+XT16wGe9Kcsk25JsH/oWgjw9PbGge+ysdAtgRAhwNm1iW+rXN5pV2oMuEaVTHlXL30iFaySXU+hAsBGpJulzAAclE3geEQGAIzCfcKrFv7VEVna3LAQMIcNyiue7lKSg1ppQ0OcAshPWWT4amNtarb4GgN8qcmwvlAk8qNRtC4GuEVKLn13fKlUUuxepQC+C9NWJ9ZlHRu5iLMUMPGrdhkZLKwLpvQfoXvXhoCDzsZP0beFgagefgkC0yWiVbxqFBmmn/Xh6tcDyxnGtUpskJ/Mb0dpDGBQnSJSJ7NKHYahaR+Fej3wWMSqMI/+Utmkmm6lgCewfICwmyPdHg4BGtRBkHp+m29VqbPyHCCPKL+pFzpJUiZIep9CBQAnOZ+nQwu3TP8bAybjqvJgkyI+DjLF07gQ4M5wXEibvtod5u0RGQDYKhhZFX3ca9hYuRID9GbDidql+kgt/eKCpYMpwGaVIAZGAaKObZyL1BygxTMgMUKXuOEXbQwBFEWaOt4tusQW/eKXQsDic0vE+17njA4SrjFg8n43XCwbZQsdfooCC4eSJJoXJVkRYJ/NSgHEOBIJ8wtYeAzQh0HpCjLop3GDeU4BtEU2kUpXR1YhQqlXDvhxvYG73sBd/wD4Df7+v4eqIoYgAAAAAElFTkSuQmCC
-        )
+    [pix_link] => https://pix.bcb.gov.br/qr/MDAwMjAxMDEwMjExMjY5NTAwMTRCUi5HT1YuQkNCLlBJWDI1NzNzcGkuZGV2LmNsb3VkLml0YXUuY29tLmJyL2RvY3VtZW50b3MvMTk4ZTQ5YzUtMjMzMC00YWQ3LTlkMGItOTY3YzdiNTM3MTIyNTIwNDAwMDA1MzAzOTg2NTgwMkJSNTkyM1BNRCBHb3RoYW0gTmVnQSBjaW9zIE1FNjAwOVNBTyBQQVVMTzYyNDEwNTAzKioqNTAzMDAwMTdCUi5HT1YuQkNCLkJSQ09ERTAxMDUxLjAuMDYzMDQwODY2
+    [emv] => 00020101021126950014BR.GOV.BCB.PIX2573spi.dev.cloud.itau.com.br/documentos/198e49c5-2330-4ad7-9d0b-967c7b5371225204000053039865802BR5923PMD Gotham NegA cios ME6009SAO PAULO62410503***50300017BR.GOV.BCB.BRCODE01051.0.063040866
+    [imagem_base64] => iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAADCUlEQVR4Xu2XUW4cIRBE6YvA/W+Ro8BFIPWKsWU5kpWPbOVn8SaZhWep1F1dTNr5ef1q33e+rTdw1xu466+A2VqtXbuP3etMPY9zlrdjwPLnrNm1NceaNXtv426nAOliqw5K+1io3IBhoFyZsWuaE/UfgM1h0xpzTMqUBfRxXZB2ONylhy/Nej0wMe2fi+0Y4KUend1omcZHR7vufgigNMzLEDXFbL63Pj6bFQBkld57MS0KkEWfdhOg3sWAI0mYRUIJMkvGwq5VCJhWtwkwAWoXIcJvjRxw9WnL/YKQWxejPGKAxvZgEHWoBKlhErztmBhgafaMXCtqWKVDJQYc2oNndY5llncEspUDlOFFrXRA23QiUl9jwB7aPvhkoE5UGeQxBlyFLEaXCbrW+XT16wGe9Kcsk25JsH/oWgjw9PbGge+ysdAtgRAhwNm1iW+rXN5pV2oMuEaVTHlXL30iFaySXU+hAsBGpJulzAAclE3geEQGAIzCfcKrFv7VEVna3LAQMIcNyiue7lKSg1ppQ0OcAshPWWT4amNtarb4GgN8qcmwvlAk8qNRtC4GuEVKLn13fKlUUuxepQC+C9NWJ9ZlHRu5iLMUMPGrdhkZLKwLpvQfoXvXhoCDzsZP0beFgagefgkC0yWiVbxqFBmmn/Xh6tcDyxnGtUpskJ/Mb0dpDGBQnSJSJ7NKHYahaR+Fej3wWMSqMI/+Utmkmm6lgCewfICwmyPdHg4BGtRBkHp+m29VqbPyHCCPKL+pFzpJUiZIep9CBQAnOZ+nQwu3TP8bAybjqvJgkyI+DjLF07gQ4M5wXEibvtod5u0RGQDYKhhZFX3ca9hYuRID9GbDidql+kgt/eKCpYMpwGaVIAZGAaKObZyL1BygxTMgMUKXuOEXbQwBFEWaOt4tusQW/eKXQsDic0vE+17njA4SrjFg8n43XCwbZQsdfooCC4eSJJoXJVkRYJ/NSgHEOBIJ8wtYeAzQh0HpCjLop3GDeU4BtEU2kUpXR1YhQqlXDvhxvYG73sBd/wD4Df7+v4eqIoYgAAAAAElFTkSuQmCC
+)
 
 ?>
 ```
