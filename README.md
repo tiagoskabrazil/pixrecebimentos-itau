@@ -69,23 +69,24 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 /**
  * ##################################################################
- * Configurando para uso em ambiente desenvolvimento ( SandBox Itaú)
+ * Configurando para uso em ambiente desenvolvimento (SandBox Itaú)
  * ##################################################################
  * 
- * OBS: Modo Producao = TRUE
- *      Em modo produção é necessário o uso de certificado digital , chave privada.
- *      Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
- *      Ex:
- *      $config->setModoProducao(true);
-*       $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
-*       $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
-*       $config->setApiKey('client_id','XXXXXXXXXXX');
-*       $config->setApiKey('client_secret','YYYYYYYYYYYY');
-*       $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
-*       $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
-*       $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
-*       $accessTokenOauth = $clienteOauth->gerarAccessToken();
-*       $config->setAccessToken($accessTokenOauth);
+ * 
+ * (OBS): Para modo producao = TRUE
+ *        Em modo produção é necessário o uso de certificado digital , chave privada.
+ *        Também é preciso alterar o Host Base da API, assim como a Url Oauth2.
+ *        Ex:
+ *        $config->setModoProducao(true);
+*         $config->setHost('https:/secure.api.itau/pix_recebimentos/v2');
+*         $config->setUrlOAuth('https://sts.itau.com.br/api/jwt');
+*         $config->setApiKey('client_id','XXXXXXXXXXX');
+*         $config->setApiKey('client_secret','YYYYYYYYYYYY');
+*         $config->setPathCertificado('c:\\caminho\\certificado\\itau\\certificado.pem');
+*         $config->setPathPrivateKey('c:\\caminho\\private\\key\\itau\\private_key.pem');
+*         $clienteOauth = new Swagger\Client\Api\OauthApi(new GuzzleHttp\Client(),$config);
+*         $accessTokenOauth = $clienteOauth->gerarAccessToken();
+*         $config->setAccessToken($accessTokenOauth);
  *      
  */
 $config = Swagger\Client\Configuration::getDefaultConfiguration();
@@ -105,38 +106,36 @@ echo "Url Oauth: " . $config->getUrlOAuth() . "\n";
 echo "Client_id:" . $config->getApiKey('client_id') . "\n";
 echo "Client_secret:" . $config->getApiKey('client_secret') . "\n";
 echo "Access_token:" . $config->getAccessToken() . "\n";
+echo "\n\n";
 /**
  * Fim da configuração do ambiente SandBox
  */
 
 // Iniciando qual API se deseja consumir
+// Por exemplo, /cobv/{txid}/qrcode
+// Operação responsável por recuperar os dados de QR Code relacionado a cobranca com vencimento
 $apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(new GuzzleHttp\Client(),$config);
-
-// Definindo os valor para envio da requisição
-$inicio = "inicio_example"; // string | Data inicial. Respeita RFC 3339.
-$fim = "fim_example"; // string | Data de fim. Respeita RFC 3339.
-$cpf = "cpf_example"; // string | CPF do devedor cadastrado na cobrança.
-$cnpj = "cnpj_example"; // string | CNPJ do devedor cadastrado na cobrança.
-$location_presente = true; // bool | Indicador se localização está presente.
-$status = "status_example"; // string | Filtro pelo Status da cobrança. Pode ser ATIVA, CONCLUIDA, REMOVIDA_PELO_PSP OU REMOVIDA_PELO_USUARIO_RECEBEDOR
-$lote_cob_v_id = 56; // int | Id do lote de cobrança com vencimento.
-$paginacao_pagina_atual = 56; // int | Numero da Página que deseja realizar o acesso, valor considerado por default 0.
-$paginacao_itens_por_pagina = 56; // int | Quantidade de ocorrência retornadas por pagina, valor por default 100.
-$x_correlation_id = "x_correlation_id_example"; // string | Identificador de correlação que serve como um agrupar dentro da estrutura de audit trail
+$txid = "123"; 
+$x_correlation_id = null; 
 
 try {
-    $result = $apiInstance->getcobv($inicio, $fim, $cpf, $cnpj, $location_presente, $status, $lote_cob_v_id, $paginacao_pagina_atual, $paginacao_itens_por_pagina, $x_correlation_id);
+    $result = $apiInstance->getcobvtxidqrcode($txid, $x_correlation_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CobranaComVencimentoCobvApi->getcobv: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CobranaComVencimentoCobvApi->getcobvtxidqrcode: ', $e->getMessage(), PHP_EOL;
 }
+
+Response de Exemplo:
+(
+            [pix_link] => https://pix.bcb.gov.br/qr/MDAwMjAxMDEwMjExMjY5NTAwMTRCUi5HT1YuQkNCLlBJWDI1NzNzcGkuZGV2LmNsb3VkLml0YXUuY29tLmJyL2RvY3VtZW50b3MvMTk4ZTQ5YzUtMjMzMC00YWQ3LTlkMGItOTY3YzdiNTM3MTIyNTIwNDAwMDA1MzAzOTg2NTgwMkJSNTkyM1BNRCBHb3RoYW0gTmVnQSBjaW9zIE1FNjAwOVNBTyBQQVVMTzYyNDEwNTAzKioqNTAzMDAwMTdCUi5HT1YuQkNCLkJSQ09ERTAxMDUxLjAuMDYzMDQwODY2
+            [emv] => 00020101021126950014BR.GOV.BCB.PIX2573spi.dev.cloud.itau.com.br/documentos/198e49c5-2330-4ad7-9d0b-967c7b5371225204000053039865802BR5923PMD Gotham NegA cios ME6009SAO PAULO62410503***50300017BR.GOV.BCB.BRCODE01051.0.063040866
+            [imagem_base64] => iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAADCUlEQVR4Xu2XUW4cIRBE6YvA/W+Ro8BFIPWKsWU5kpWPbOVn8SaZhWep1F1dTNr5ef1q33e+rTdw1xu466+A2VqtXbuP3etMPY9zlrdjwPLnrNm1NceaNXtv426nAOliqw5K+1io3IBhoFyZsWuaE/UfgM1h0xpzTMqUBfRxXZB2ONylhy/Nej0wMe2fi+0Y4KUend1omcZHR7vufgigNMzLEDXFbL63Pj6bFQBkld57MS0KkEWfdhOg3sWAI0mYRUIJMkvGwq5VCJhWtwkwAWoXIcJvjRxw9WnL/YKQWxejPGKAxvZgEHWoBKlhErztmBhgafaMXCtqWKVDJQYc2oNndY5llncEspUDlOFFrXRA23QiUl9jwB7aPvhkoE5UGeQxBlyFLEaXCbrW+XT16wGe9Kcsk25JsH/oWgjw9PbGge+ysdAtgRAhwNm1iW+rXN5pV2oMuEaVTHlXL30iFaySXU+hAsBGpJulzAAclE3geEQGAIzCfcKrFv7VEVna3LAQMIcNyiue7lKSg1ppQ0OcAshPWWT4amNtarb4GgN8qcmwvlAk8qNRtC4GuEVKLn13fKlUUuxepQC+C9NWJ9ZlHRu5iLMUMPGrdhkZLKwLpvQfoXvXhoCDzsZP0beFgagefgkC0yWiVbxqFBmmn/Xh6tcDyxnGtUpskJ/Mb0dpDGBQnSJSJ7NKHYahaR+Fej3wWMSqMI/+Utmkmm6lgCewfICwmyPdHg4BGtRBkHp+m29VqbPyHCCPKL+pFzpJUiZIep9CBQAnOZ+nQwu3TP8bAybjqvJgkyI+DjLF07gQ4M5wXEibvtod5u0RGQDYKhhZFX3ca9hYuRID9GbDidql+kgt/eKCpYMpwGaVIAZGAaKObZyL1BygxTMgMUKXuOEXbQwBFEWaOt4tusQW/eKXQsDic0vE+17njA4SrjFg8n43XCwbZQsdfooCC4eSJJoXJVkRYJ/NSgHEOBIJ8wtYeAzQh0HpCjLop3GDeU4BtEU2kUpXR1YhQqlXDvhxvYG73sBd/wD4Df7+v4eqIoYgAAAAAElFTkSuQmCC
+        )
 
 ?>
 ```
 
 ## Documentação dos Endpoints da API Recebimentos PIX Itaú
-
-
 
 Classe | Metodo | HTTP request | Descrição
 ------------ | ------------- | ------------- | -------------
