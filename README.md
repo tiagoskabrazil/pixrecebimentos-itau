@@ -65,7 +65,7 @@ Primeiramente siga os passos dos procedimentos de instalação [installation pro
 ```php
 <?php
 
-require_once(__DIR__ . '/vendor/autoload.php');
+require_once('/path/para/pixrecebimentos-itau/vendor/autoload.php')
 
 /**
  * ##################################################################
