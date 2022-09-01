@@ -72,8 +72,8 @@ $apiInstance = new Swagger\Client\Api\CobranaComVencimentoCobvApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inicio = "inicio_example"; // string | Data inicial. Respeita RFC 3339.
-$fim = "fim_example"; // string | Data de fim. Respeita RFC 3339.
+$inicio = "2020-01-01T00:00:00Z"; // string | Data inicial. Respeita RFC 3339.
+$fim = "2020-01-01T00:00:00Z"; // string | Data de fim. Respeita RFC 3339.
 $cpf = "cpf_example"; // string | CPF do devedor cadastrado na cobrança.
 $cnpj = "cnpj_example"; // string | CNPJ do devedor cadastrado na cobrança.
 $location_presente = true; // bool | Indicador se localização está presente.
