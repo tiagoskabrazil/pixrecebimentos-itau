@@ -64,20 +64,18 @@ class OauthApi
         $httpBody = '';
         $response = null;
         $token = "";
-
+        $options = $this->createHttpClientOption();
         $headerParams['Content-Type'] = "application/json";
-        
         $clientId = $this->config->getApiKey('client_id');
         $clientSecret = $this->config->getApiKey('client_secret');
-
         $headerParams['x-itau-apikey'] = $clientId;
         $httpBody = '{ "client_id":"'.$clientId.'", "client_secret":"'.$clientSecret.'" }';
 
         if($this->config->isModoProducao()){
             echo "* Modo Producao. Aplicando cert e ssl_key no header da requisicao\n";
             if ($this->config->getPathCertificado() !== null && $this->config->getPathPrivateKey() !== null) {
-                $headerParams['cert'] = $this->config->getPathCertificado();
-                $headerParams['ssl_key'] = $this->config->getPathPrivateKey();
+                $options['cert'] = $this->config->getPathCertificado();
+                $options['ssl_key'] = $this->config->getPathPrivateKey();
             }else{
                 throw new ApiException(
                     "* Modo Producao: Path p/ Certificado e path p/ Private Key obrigatorio.",
@@ -89,7 +87,7 @@ class OauthApi
         }
 
         $request = new Request('POST', $this->config->getUrlOAuth(), $headerParams, $httpBody);
-        $options = $this->createHttpClientOption();
+        
 
         try {
             $response = $this->client->send($request, $options);
