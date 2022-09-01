@@ -66,8 +66,11 @@ class OauthApi
         $token = "";
 
         $headerParams['Content-Type'] = "application/json";
+        
         $clientId = $this->config->getApiKey('client_id');
         $clientSecret = $this->config->getApiKey('client_secret');
+
+        $headerParams['x-itau-apikey'] = $clientId;
         $httpBody = '{ "client_id":"'.$clientId.'", "client_secret":"'.$clientSecret.'" }';
 
         if($this->config->isModoProducao()){

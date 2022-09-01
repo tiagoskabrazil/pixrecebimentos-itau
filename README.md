@@ -168,7 +168,7 @@ Classe | Metodo | HTTP request | Descrição
 *WebhookApi* | [**getwebhookchave**](docs/Api/WebhookApi.md#getwebhookchave) | **GET** /webhook/{chave} | 
 *WebhookApi* | [**putwebhookchave**](docs/Api/WebhookApi.md#putwebhookchave) | **PUT** /webhook/{chave} | 
 
-## Documentation For Models
+## Documentação dos Models
 
  - [Calendario](docs/Model/Calendario.md)
  - [Cobranca](docs/Model/Cobranca.md)
@@ -272,22 +272,6 @@ Classe | Metodo | HTTP request | Descrição
  - [WebhooksParametros](docs/Model/WebhooksParametros.md)
  - [WebhooksParametrosPaginacao](docs/Model/WebhooksParametrosPaginacao.md)
 
-## Documentation For Authorization
-
-
-## APIGatewaySTSAuthorizer
-
-- **Type**: HTTP basic authentication
-
-## oauth2
-
-- **Type**: OAuth
-- **Flow**: application
-- **Authorization URL**: 
-- **Scopes**: 
-
-
-## Author
 
 
 

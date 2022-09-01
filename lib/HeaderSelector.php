@@ -80,8 +80,8 @@ class HeaderSelector
             }
         }
        
-        echo "* aplicando header x-itau-apikey\n";
-        $headersInput['x-itau-apikey'] = isset($config->apiKeys['x-itau-apikey']) ? $config->apiKeys['x-itau-apikey'] : 123;
+        echo "* aplicando header x-itau-apikey com o valor do client_id \n";
+        $headersInput['x-itau-apikey'] = isset($config->apiKeys['client_id']) ? $config->apiKeys['client_id'] : 123;
         
         return $headersInput;
     }
